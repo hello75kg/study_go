@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package hello;
+
+option go_package = ".;proto";
+
+message Hello {
+  string name = 1;
+  int32 age = 2;
+  repeated string tags = 3;
+  map<string, int32> scores = 4;
+  optional bool is_active = 5;
+  Gender gender = 6;
+  map<string,string> mp = 7;
+}
+
+enum Gender{
+  MALE = 0;
+  FEMALE =1;
+}
+
+//protoc --go_out=. --go-grpc_out=. hello.proto
