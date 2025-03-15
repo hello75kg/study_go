@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 
-	"studyProject/003_002/services/user_srv/global"
+	"studyProject/003_003/010_nacos_go/services/user_srv/global"
 )
 
 func GetEnvInfo(env string) bool {

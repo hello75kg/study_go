@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 
-	"studyProject/003_002/services/user_srv/global"
+	"wshop-api/user-web/global"
 )
 
 func GetEnvInfo(env string) bool {
@@ -20,12 +20,11 @@ func GetEnvInfo(env string) bool {
 }
 
 func InitConfig() {
-	// 从配置文件中读取出对应的配置
 	debug := GetEnvInfo("WSHOP_DEBUG")
 	configFilePrefix := "config"
-	configFileName := fmt.Sprintf("%s-pro.yaml", configFilePrefix)
+	configFileName := fmt.Sprintf("user-web/%s-pro.yaml", configFilePrefix)
 	if debug {
-		configFileName = fmt.Sprintf("%s-debug.yaml", configFilePrefix)
+		configFileName = fmt.Sprintf("user-web/%s-debug.yaml", configFilePrefix)
 	}
 
 	v := viper.New()
@@ -35,7 +34,7 @@ func InitConfig() {
 		panic(err)
 	}
 	// 这个对象如何在其他文件中使用 - 全局变量
-	if err := v.Unmarshal(&global.NacosConfig); err != nil {
+	if err := v.Unmarshal(global.NacosConfig); err != nil {
 		panic(err)
 	}
 	zap.S().Infof("配置信息: %v", global.NacosConfig)
@@ -54,9 +53,9 @@ func InitConfig() {
 		NotLoadCacheAtStart: true,
 		LogDir:              "tmp/nacos/log",
 		CacheDir:            "tmp/nacos/cache",
-		// RotateTime:          "1h",
-		// MaxAge:              3,
-		LogLevel: "debug",
+		RotateTime:          "1h",
+		MaxAge:              3,
+		LogLevel:            "debug",
 	}
 
 	configClient, err := clients.CreateConfigClient(map[string]interface{}{
@@ -69,8 +68,8 @@ func InitConfig() {
 
 	content, err := configClient.GetConfig(vo.ConfigParam{
 		DataId: global.NacosConfig.DataId,
-		Group:  global.NacosConfig.Group})
-
+		Group:  global.NacosConfig.Group,
+	})
 	if err != nil {
 		panic(err)
 	}
@@ -80,5 +79,6 @@ func InitConfig() {
 	if err != nil {
 		zap.S().Fatalf("读取nacos配置失败： %s", err.Error())
 	}
-	fmt.Println(&global.ServerConfig)
+	fmt.Println(global.ServerConfig)
+
 }

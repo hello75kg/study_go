@@ -23,9 +23,9 @@ func InitConfig() {
 	// 从配置文件中读取出对应的配置
 	debug := GetEnvInfo("WSHOP_DEBUG")
 	configFilePrefix := "config"
-	configFileName := fmt.Sprintf("%s-pro.yaml", configFilePrefix)
+	configFileName := fmt.Sprintf("/Users/wwj/GolandProjects/studyProject/003_001/project/user_srv/%s-pro.yaml", configFilePrefix)
 	if debug {
-		configFileName = fmt.Sprintf("%s-debug.yaml", configFilePrefix)
+		configFileName = fmt.Sprintf("/Users/wwj/GolandProjects/studyProject/003_001/project/user_srv/%s-debug.yaml", configFilePrefix)
 	}
 
 	v := viper.New()
