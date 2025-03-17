@@ -1,0 +1,16 @@
+{
+  "name": "inventory-srv",
+  "host": "192.168.0.249",
+  "tags":["chen", "wang", "inventory", "srv"],
+  "mysql": {
+    "host": "192.168.0.249",
+    "port": 3306,
+    "user": "root",
+    "password": "root",
+    "db": "wshop_inventory_srv"
+  },
+  "consul": {
+    "host": "192.168.0.249",
+    "port": 8500
+  }
+}

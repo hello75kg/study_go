@@ -1,0 +1,16 @@
+{
+    "name":"goods-srv",
+    "host":"192.168.0.249",
+    "tags":["chen", "wang", "python", "srv"],
+    "mysql":{
+        "db":"wshop_goods_srv",
+        "host":"192.168.0.249",
+        "port":3306,
+        "user":"root",
+        "password":"root"
+    },
+    "consul":{
+        "host":"192.168.0.249",
+        "port":8500
+    }
+}

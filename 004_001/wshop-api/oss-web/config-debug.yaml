@@ -1,0 +1,7 @@
+host: '192.168.0.249'
+port: 8848
+namespace: '5360869b-57ee-4b6c-82db-395b64b6d9a9'
+user: 'nacos'
+password: 'nacos'
+dataid: 'oss-web.json'
+group: 'dev'
