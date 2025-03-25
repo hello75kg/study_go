@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"studyProject/005_002/002_high_availability/demo-gin/middleware"
+	"studyGo/005_002/002_high_availability/demo-gin/middleware"
 
 	"github.com/gin-gonic/gin"
 
